@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${CA_CERTIFICATE_SERV}
+    server: https://${HOMESERV_IP}:6443
+  name: default
+contexts:
+- context:
+    cluster: default
+    user: default
+  name: default
+current-context: homeserv
+kind: Config
+preferences: {}
+users:
+- name: default
+  user:
+    client-certificate-data: ${CLIENT_CERTIFICATE_SERV}
+    client-key-data: ${CLIENT_KEY_SERV}
